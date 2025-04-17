@@ -17,6 +17,31 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = scrolled + '%';
     });
     
+    // 黑暗模式切換
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    
+    // 檢查本地存儲中的主題設置
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    // 切換主題
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        // 更新圖標
+        if (body.classList.contains('dark-mode')) {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    
     // 添加滾動動畫效果
     const sections = document.querySelectorAll('.section');
     
