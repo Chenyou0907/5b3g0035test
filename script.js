@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 添加圖片點擊放大效果
-    const images = document.querySelectorAll('.image img');
+    const images = document.querySelectorAll('.image-container img');
     
     images.forEach(img => {
         img.addEventListener('click', function() {
